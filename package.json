@@ -1,0 +1,46 @@
+{
+  "name": "issue-management-system",
+  "version": "1.0.0",
+  "description": "PSF Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seeds": "babel-node node_modules/.bin/sequelize db:seed:all --seeders-path src/database/seeders",
+    "undoseeds": "babel-node node_modules/.bin/sequelize db:seed:undo:all",
+    "migration": " babel-node node_modules/.bin/sequelize db:migrate",
+    "undomigration": "babel-node node_modules/.bin/sequelize db:migrate:undo:all",
+    "runmigrations": " npm run undomigration && npm run migration",
+    "dev": "NODE_ENV=development nodemon --exec babel-node --presets @babel/preset-env src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blaisebakundukize/issue-management-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blaisebakundukize/issue-management-system/issues"
+  },
+  "homepage": "https://github.com/blaisebakundukize/issue-management-system#readme",
+  "dependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/register": "^7.14.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.12",
+    "pg": "^8.6.0",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  }
+}
