@@ -3,7 +3,7 @@ import { comparePassword, generateAccessToken } from '../../helpers/auth.helpers
 
 const { User } = models;
 
-class Auth {
+class AuthController {
   login = async (req, res) => {
     try {
       const { email, password } = req.body;
@@ -38,6 +38,6 @@ class Auth {
   }
 }
 
-const auth = new Auth();
+const authController = new AuthController();
 
-export default auth;
+export default authController;
