@@ -10,13 +10,13 @@ export const comparePassword = (hashPassword, password) => {
   return bcrypt.compareSync(password, hashPassword);
 }
 
-export const generateAccessToken = (user, expiry = '50m') =>
+export const generateAccessToken = (user, expiry = '1h') =>
   jsonwebtoken.sign(
     {
-      isStaff: user.isStaff,
-      isAdmin: user.isAdmin,
       userId: user.id
     },
     secretKey,
     { expiresIn: expiry }
   );
+
+  export const decodeJWT = (token) => jsonwebtoken.verify(token, secretKey, { complete: true });
