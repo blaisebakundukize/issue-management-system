@@ -12,6 +12,11 @@ export const checkAssignedUser = async (req, res, next) => {
     if (!assignedUser) {
       return res.status(404).json({ message: "Assignee not found"})
     }
+
+    if (!assignedUser.dataValues.isStaff) {
+      return res.status(400).json({ message: "Assignee is not a membership staff" });
+    }
+
     return next();
   } catch (error) {
     res.status(404).json({ message: "Assignee not found"})

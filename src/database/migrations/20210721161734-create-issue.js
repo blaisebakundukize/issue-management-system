@@ -17,7 +17,8 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
+          as: 'createdBy'
         }
       },
       assignedTo: {
@@ -26,7 +27,8 @@ module.exports = {
         onDelete: 'SET NULL',
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
+          as: 'assignedTo'
         }
       },
       createdAt: {
