@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.User, { foreignKey: 'createdBy', onDelete: 'CASCADE' });
-      this.belongsTo(models.User, { foreignKey: 'assignedTo', onDelete: 'SET NULL'});
+      this.belongsTo(models.User, { as: 'creator', foreignKey: 'createdBy', onDelete: 'CASCADE' });
+      this.belongsTo(models.User, { as: 'assignee', foreignKey: 'assignedTo', onDelete: 'SET NULL'});
     }
   };
   Issue.init({

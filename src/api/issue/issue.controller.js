@@ -49,6 +49,23 @@ class IssueController {
       return res.status(400).json({error: "Could not assign the member"})
     }
   }
+
+   getAllIssues = async (req, res) => {
+    try {
+
+      const issues = await Issue.findAll({
+        include: [{ model: User, as: 'assignee', attributes: ['id', 'name', 'email'] }]
+      });
+
+      res.status(200).json({
+        message: 'Successfully fetched issues',
+        data: issues
+      })
+    } catch (err) {
+      console.log(err.message)
+      return res.status(400).json({error: "Could not fetch issues"})
+    }
+  }
 }
 
 const issueController = new IssueController();

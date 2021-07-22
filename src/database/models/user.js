@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.Issue, { foreignKey: 'createdBy', allowNull: false });
-      this.hasMany(models.Issue, { foreignKey: 'assignedTo', allowNull: true });
+      this.hasMany(models.Issue, { foreignKey: 'createdBy', as: 'createdBy', allowNull: false });
+      this.hasMany(models.Issue, { foreignKey: 'assignedTo', as: 'assignedTo', allowNull: true });
     }
   };
   User.init({
